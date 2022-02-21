@@ -15,6 +15,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
+		@SuppressWarnings("deprecation")
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		
 		auth.inMemoryAuthentication()
@@ -31,6 +32,9 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 			.formLogin()
 				.loginPage("/loginPage")
 				.loginProcessingUrl("/authenticate")
-				.permitAll();
+				.permitAll()
+			.and()
+			.logout().permitAll();
+			
 	}
 }

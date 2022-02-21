@@ -13,15 +13,33 @@
 </head>
 <body>
 	<div class="container">
-		<h3>Login</h3>
+		<h3>Login page</h3>
 		<hr>
-		<p th:if="${param.error != null}" class="alert alert-danger" role="alert">Wrong name or password</p>
-		<p class="h4 mb-4">Login here</p>
+		
+		<div th:if="${param.error != null}" 
+				class="alert alert-danger col-xs-offset-1 col-xs-10" 
+				role="alert">
+			Wrong name or password
+		</div>
+		
+		<div th:if="${param.logout != null}" 
+				class="alert alert-info col-xs-offset-1 col-xs-10" 
+				role="alert">
+			You have been logged out
+		</div>
+		
+		<p class="h4 mb-4">Login</p>
+		
 		<form action="#" th:action="@{/authenticate}" method="POST">
-			<input type="text" name="username" class="form-control mb-4 col-4" placeholder="Name">
-			<input type="password" name="password" class="form-control mb-4 col-4" placeholder="Password">
-			<button type="submit" class="btn btn-info col-2">Login</button> 
+			<div class="form-group">
+				<div class=form-xs-15>
+					<input type="text" name="username" class="form-control mb-4 col-4" placeholder="Name">
+					<input type="password" name="password" class="form-control mb-4 col-4" placeholder="Password">
+					<button type="submit" class="btn btn-info col-2">Login</button>
+				</div> 
+			</div>
 		</form>
+	
 	</div>
 </body>
 </html>
