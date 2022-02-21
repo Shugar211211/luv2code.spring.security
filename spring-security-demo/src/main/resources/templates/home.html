@@ -16,7 +16,13 @@
 		<h2>luv2code company home page</h2>
 		<hr>
 		Welcome to luv2code company home page!
+		<p>
+			<span th:text="${#authentication.getPrincipal().getUsername()}"></span>
+			<span th:text="${#authentication.getPrincipal().authorities}"></span>
+		</p>
 		<hr>
+		
+		<!-- Log out button -->
 		<form action="#" th:action="@{/logout}" method="post">
 			<input type="submit" value="Logout" class="alert alert-info" role="alert">
 		</form>
